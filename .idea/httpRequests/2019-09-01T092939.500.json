@@ -1,0 +1,7 @@
+{
+  "timestamp": "2019-09-01T19:29:39.208+0000",
+  "status": 500,
+  "error": "Internal Server Error",
+  "message": "No class com.greenfox.todo.model.Todo entity with id 1 exists!",
+  "path": "/todo/1"
+}

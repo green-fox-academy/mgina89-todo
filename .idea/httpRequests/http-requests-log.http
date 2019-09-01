@@ -1,0 +1,158 @@
+DELETE http://localhost:8080/todo/4
+Accept: application/json;charset=UTF8
+
+###
+
+GET http://localhost:8080/todo/list
+Accept: application/json;charset=UTF8
+
+<> 2019-09-01T095928.200.json
+
+###
+
+PUT http://localhost:8080/todo
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json;charset=UTF8
+
+{"title":"go shopping", "urgent":  true}
+
+###
+
+GET http://localhost:8080/todo/list
+Accept: application/json;charset=UTF8
+
+<> 2019-09-01T095910.200.json
+
+###
+
+PUT http://localhost:8080/todo
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json;charset=UTF8
+
+{"title":"go shopping"}
+
+###
+
+GET http://localhost:8080/todo/list
+Accept: application/json;charset=UTF8
+
+<> 2019-09-01T095903.200.json
+
+###
+
+PUT http://localhost:8080/todo
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json;charset=UTF8
+
+{"title":"go shopping"}
+
+###
+
+GET http://localhost:8080/todo/list
+Accept: application/json;charset=UTF8
+
+<> 2019-09-01T095850.200.json
+
+###
+
+DELETE http://localhost:8080/todo/3
+Accept: application/json;charset=UTF8
+
+###
+
+DELETE http://localhost:8080/todo/2
+Accept: application/json;charset=UTF8
+
+###
+
+DELETE http://localhost:8080/todo/1
+Accept: application/json;charset=UTF8
+
+<> 2019-09-01T092939.500.json
+
+###
+
+GET http://localhost:8080/todo/list
+Accept: application/json;charset=UTF8
+
+<> 2019-09-01T092932.200.json
+
+###
+
+PUT http://localhost:8080/todo
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json;charset=UTF8
+
+{"title":"go shopping"}
+
+###
+
+GET http://localhost:8080/todo/list
+Accept: application/json;charset=UTF8
+
+<> 2019-09-01T092857.200.json
+
+###
+
+PUT http://localhost:8080/todo
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json;charset=UTF8
+
+{"title":"go shopping"}
+
+###
+
+GET http://localhost:8080/todo/list
+Accept: application/json;charset=UTF8
+
+<> 2019-09-01T092848.200.json
+
+###
+
+DELETE http://localhost:8080/todo/1
+Accept: application/json;charset=UTF8
+
+###
+
+GET http://localhost:8080/todo/list
+Accept: application/json;charset=UTF8
+
+<> 2019-09-01T092830.200.json
+
+###
+
+GET http://localhost:8080/todo/list
+Accept: application/json;charset=UTF8
+
+<> 2019-09-01T092438.200.json
+
+###
+
+GET https://localhost:8080/todo/list
+Accept: application/json;charset=UTF8
+
+###
+
+PUT http://localhost:8080/todo
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json;charset=UTF8
+
+{"title":"go shopping"}
+
+###
+
+PUT http://localhost:8080/todo
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json;charset=UTF8
+
+<> 2019-09-01T092304.400.json
+
+###
+

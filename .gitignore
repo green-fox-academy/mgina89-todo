@@ -1,0 +1,5 @@
+.gradle
+build/
+out/
+.idea/workspace.xml
+hs_err_pid*
