@@ -1,7 +1,6 @@
 package com.greenfox.todo.controller;
 
 import com.greenfox.todo.model.Todo;
-import com.greenfox.todo.repository.TodoRepository;
 import com.greenfox.todo.service.TodoService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,18 +11,16 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultMatcher;
 
 import java.util.Arrays;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.ResultMatcher.matchAll;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
@@ -61,5 +58,24 @@ public class TodoControllerTest {
             jsonPath("$[0].title").value("go shopping"),
             jsonPath("$[1].title").value( "cut nails")
     ));
+  }
+
+  @Test
+  public void assert_delete_deletes_todo_by_id() throws Exception {
+    mockMvc.perform(delete("/todo/1")).andExpect(status().is2xxSuccessful());
+    verify(service).delete(1);
+  }
+
+  @Test
+  public void assert_todolist_returns_view() throws Exception {
+    List<Todo> todos = Arrays.asList(new Todo("go shopping"), new Todo("cut nails"));
+    when(service.findAll()).thenReturn(todos);
+
+    mockMvc.perform(get("/todo/list").accept(MediaType.TEXT_HTML))
+            .andExpect(status().is2xxSuccessful())
+            .andExpect(content().contentType("text/html;charset=UTF8"))
+            .andExpect(content().string(containsString("go shopping")))
+            .andExpect(content().string(containsString("cut nails")));
+
   }
 }

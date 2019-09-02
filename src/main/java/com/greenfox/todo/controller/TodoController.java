@@ -1,24 +1,32 @@
 package com.greenfox.todo.controller;
 
 import com.greenfox.todo.model.Todo;
-import com.greenfox.todo.repository.TodoRepository;
 import com.greenfox.todo.service.TodoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/todo")
 @RequiredArgsConstructor
 public class TodoController {
 
   private final TodoService service;
 
-  @GetMapping("/list")
-  public List<Todo> list() {
+  @GetMapping(value = "/list", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  public @ResponseBody List<Todo> list() {
     return service.findAll();
+  }
+
+  @GetMapping(value = "/list", produces = MediaType.TEXT_HTML_VALUE)
+  public String todoList(Model model) {
+    model.addAttribute("todos", service.findAll());
+    return "todolist";
   }
 
   @PutMapping
